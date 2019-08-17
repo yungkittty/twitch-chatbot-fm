@@ -1,11 +1,6 @@
 {
   "author": "yungkittty",
   "name": "twitch-chatbot-fm",
-  "version": "0.0.1",
-  "description": "",
-  "main": "./index.js",
-  "scripts": {},
-  "dependencies": {
-    "tmi.js": "^1.4.5"
-  }
+  "version": "1.0.0",
+  "scripts": {}
 }
