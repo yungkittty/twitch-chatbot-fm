@@ -8,7 +8,27 @@ const tcfPlayers = {};
 
 const tcfServer = express();
 
-tcfServer.get("/players", () => undefined);
+tcfServer.use((tcfRequest, tcfReponse, tcfNext) => {
+  tcfReponse.append("Access-Control-Allow-Origin", ["*"]);
+  tcfReponse.append("Access-Control-Allow-Methods", "GET");
+  tcfReponse.append("Access-Control-Allow-Headers", "Content-Type");
+  tcfNext();
+});
+
+const tcfGetPlayers = require("./src/routes/tcf-get-players");
+
+tcfServer.get("/players", (
+  // eslint-disable-line
+  tcfRequest,
+  tcfReponse
+) =>
+  tcfGetPlayers(
+    // eslint-disable-line
+    tcfRequest,
+    tcfReponse,
+    tcfPlayers
+  )
+);
 
 const {
   TCF_SERVER_PORT,
@@ -20,12 +40,14 @@ const {
 tcfServer.listen(TCF_SERVER_PORT);
 
 const tcfServerBot = new tmi.client({
-  username: TCF_SERVER_BOT_USERNAME,
-  password: TCF_SERVER_BOT_PASSWORD,
+  identity: {
+    username: TCF_SERVER_BOT_USERNAME,
+    password: TCF_SERVER_BOT_PASSWORD
+  },
   channels: [TCF_SERVER_BOT_CHANNEL]
 });
 
-const tcfCmdVote = require("./src/cmds/tcf-cmd-vote");
+const tcfVote = require("./src/commands/tcf-vote");
 
 tcfServerBot.on("message", (
   // eslint-disable-line
@@ -38,8 +60,9 @@ tcfServerBot.on("message", (
   const [tcfCmd, ...tcfCmdArgs] = _.split(_.trim(tcfMessage), " ");
   switch (tcfCmd) {
     case "!tcf-vote":
-      return tcfCmdVote(
+      return tcfVote(
         // eslint-disable-line
+        tcfServerBot,
         tcfPlayers,
         tcfTarget,
         tcfCmdArgs
