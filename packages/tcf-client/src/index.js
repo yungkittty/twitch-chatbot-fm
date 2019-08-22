@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "purecss/build/pure-min.css";
+import "purecss/build/grids-responsive-min.css";
 import App from "./app";
 import * as serviceWorker from "./service-worker";
 import "./index.css";

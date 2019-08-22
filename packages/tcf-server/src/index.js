@@ -15,7 +15,7 @@ tcfServer.use((tcfRequest, tcfReponse, tcfNext) => {
   tcfNext();
 });
 
-const tcfGetPlayers = require("./src/routes/tcf-get-players");
+const tcfGetPlayers = require("./routes/tcf-get-players");
 
 tcfServer.get("/players", (
   // eslint-disable-line
@@ -47,7 +47,7 @@ const tcfServerBot = new tmi.client({
   channels: [TCF_SERVER_BOT_CHANNEL]
 });
 
-const tcfVote = require("./src/commands/tcf-vote");
+const tcfVote = require("./commands/tcf-vote");
 
 tcfServerBot.on("message", (
   // eslint-disable-line

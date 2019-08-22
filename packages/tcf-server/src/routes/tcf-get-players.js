@@ -9,11 +9,15 @@ const tcfGetPlayer = (
   tcfReponse.json(
     _.chain(tcfPlayers)
       .keys()
-      .reduce((tcfPlayersOthers, tcfPlayersId) => {
+      .sortBy(tcfPlayerId => {
+        return tcfPlayers[tcfPlayerId].votes;
+      })
+      .reverse()
+      .reduce((tcfPlayersOthers, tcfPlayerId) => {
         const tcfPlayer = {
           // eslint-disable-line
-          ...tcfPlayers[tcfPlayersId],
-          id: tcfPlayersId
+          ...tcfPlayers[tcfPlayerId],
+          id: tcfPlayerId
         };
         return [
           // eslint-disable-line

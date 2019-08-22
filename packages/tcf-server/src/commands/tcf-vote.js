@@ -15,7 +15,7 @@ const tcfVote = (
   }
   const tcfPlayerFirstname = _.deburr(tcfCmdArgs[0]);
   const tcfPlayerSurname = _.deburr(tcfCmdArgs[1]);
-  const tcfPlayerId = tcfPlayerFirstname + tcfPlayerSurname;
+  const tcfPlayerId = `${tcfPlayerFirstname}-${tcfPlayerSurname}`;
   const tcfPlayer = tcfPlayers[tcfPlayerId] || { votes: 0 };
   tcfPlayer.firstname = tcfPlayerFirstname;
   tcfPlayer.surname = tcfPlayerSurname;
