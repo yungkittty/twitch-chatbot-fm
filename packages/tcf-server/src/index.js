@@ -10,12 +10,12 @@ const tcfServer = express();
 
 tcfServer.use((tcfRequest, tcfReponse, tcfNext) => {
   tcfReponse.append("Access-Control-Allow-Origin", ["*"]);
-  tcfReponse.append("Access-Control-Allow-Methods", "GET");
-  tcfReponse.append("Access-Control-Allow-Headers", "Content-Type");
+  tcfReponse.append("Access-Control-Allow-Methods", "GET, DELETE");
   tcfNext();
 });
 
 const tcfGetPlayers = require("./routes/tcf-get-players");
+const tcfDeletePlayer = require("./routes/tcf-delete-player");
 
 tcfServer.get("/players", (
   // eslint-disable-line
@@ -30,14 +30,26 @@ tcfServer.get("/players", (
   )
 );
 
+tcfServer.delete("/players/:id", (
+  // eslint-disable-line
+  tcfRequest,
+  tcfReponse
+) =>
+  tcfDeletePlayer(
+    // eslint-disable-line
+    tcfRequest,
+    tcfReponse,
+    tcfPlayers
+  )
+);
+
+tcfServer.listen(4000);
+
 const {
-  TCF_SERVER_PORT,
   TCF_SERVER_BOT_USERNAME,
   TCF_SERVER_BOT_PASSWORD,
   TCF_SERVER_BOT_CHANNEL
 } = process.env;
-
-tcfServer.listen(TCF_SERVER_PORT);
 
 const tcfServerBot = new tmi.client({
   identity: {

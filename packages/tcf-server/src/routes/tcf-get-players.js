@@ -6,7 +6,7 @@ const tcfGetPlayer = (
   tcfReponse,
   tcfPlayers
 ) =>
-  tcfReponse.json(
+  tcfReponse.status(200).json(
     _.chain(tcfPlayers)
       .keys()
       .sortBy(tcfPlayerId => {

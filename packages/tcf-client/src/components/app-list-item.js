@@ -1,13 +1,21 @@
 import _ from "lodash";
 import React from "react";
+import "./app-list-item.css";
 
 const AppListItem = ({
   // eslint-disable-line
+  id,
   firstname,
   surname,
-  votes
+  votes,
+  hideItem
 }) => (
-  <button style={styles.itemContainer} onClick={() => undefined}>
+  <button
+    // eslint-disable-line
+    className="item-container"
+    style={styles.itemContainer}
+    onClick={() => hideItem(id)}
+  >
     <h1 style={styles.itemTitle}>
       {/* eslint-disable-line */}
       {_.capitalize(firstname)}

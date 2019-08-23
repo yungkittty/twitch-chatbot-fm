@@ -1,50 +1,51 @@
+import _ from "lodash";
 import React from "react";
 import AppHints from "./components/app-hints";
 import AppListItem from "./components/app-list-item";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.renderItem = this.renderItem.bind(this);
-    this.state = { data: [] };
-  }
+const App = () => {
+  const [data, setData] = React.useState([]);
 
-  componentDidMount() {
+  React.useEffect(() => {
     fetch("http://localhost:4000/players")
       .then(response => response.json())
-      .then(data => this.setState({ data }));
-    // .catch(() => {});
-  }
+      .then(data => setData(data))
+      .catch(() => undefined);
+  }, []);
 
-  renderItem(item) {
-    const {
-      // eslint-disable-line
-      firstname,
-      surname,
-      votes
-    } = item;
-    return (
-      <AppListItem
-        // eslint-disable-line
-        firstname={firstname}
-        surname={surname}
-        votes={votes}
-      />
-    );
-  }
+  const hideItem = itemId => {
+    fetch(`http://localhost:4000/players/${itemId}`, { method: "DELETE" })
+      .then(() => setData(_.filter(data, item => item.id !== itemId)))
+      .catch(() => undefined);
+  };
 
-  render() {
-    const { data } = this.state;
-    return (
-      <div className="pure-g" style={styles.appContainer}>
-        <div className="pure-u-1 pure-u-md-3-4 pure-u-lg-1-2">
-          <AppHints />
-          {_.map(data, this.renderItem)}
-        </div>
+  return (
+    <div className="pure-g" style={styles.appContainer}>
+      <div className="pure-u-1 pure-u-md-3-4 pure-u-lg-1-2">
+        <AppHints />
+        {_.map(data, item => {
+          const {
+            // eslint-disable-line
+            id,
+            firstname,
+            surname,
+            votes
+          } = item;
+          return (
+            <AppListItem
+              // eslint-disable-line
+              id={id}
+              firstname={firstname}
+              surname={surname}
+              votes={votes}
+              hideItem={hideItem}
+            />
+          );
+        })}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 const styles = {
   appContainer: {
