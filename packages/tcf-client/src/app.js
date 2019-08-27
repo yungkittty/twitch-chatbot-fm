@@ -7,14 +7,14 @@ const App = () => {
   const [data, setData] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("http://localhost:4000/players")
+    fetch("http://localhost:4000/api/players")
       .then(response => response.json())
       .then(data => setData(data))
       .catch(() => undefined);
   }, []);
 
   const hideItem = itemId => {
-    fetch(`http://localhost:4000/players/${itemId}`, { method: "DELETE" })
+    fetch(`http://localhost:4000/api/players/${itemId}`, { method: "DELETE" })
       .then(() => setData(_.filter(data, item => item.id !== itemId)))
       .catch(() => undefined);
   };

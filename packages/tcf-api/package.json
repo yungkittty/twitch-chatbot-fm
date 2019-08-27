@@ -1,0 +1,9 @@
+{
+  "author": "yungkittty",
+  "name": "tcf-api",
+  "version": "1.0.0",
+  "scripts": {},
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}

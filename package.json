@@ -2,5 +2,18 @@
   "author": "yungkittty",
   "name": "twitch-chatbot-fm",
   "version": "1.0.0",
-  "scripts": {}
+  "scripts": {
+    "start:development:linux": "",
+    "build:production:linux": "",
+    "build:production:windows": ""
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "path": "^0.12.7",
+    "tmi.js": "^1.4.5"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.2"
+  }
 }

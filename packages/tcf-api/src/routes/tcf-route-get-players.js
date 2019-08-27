@@ -1,6 +1,6 @@
 const _ = require("lodash");
 
-const tcfGetPlayer = (
+const tcfRouteGetPlayer = (
   // eslint-disable-line
   tcfRequest,
   tcfReponse,
@@ -28,4 +28,4 @@ const tcfGetPlayer = (
       .value()
   );
 
-module.exports = tcfGetPlayer;
+module.exports = tcfRouteGetPlayer;

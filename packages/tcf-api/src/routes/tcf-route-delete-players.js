@@ -1,6 +1,6 @@
 const _ = require("lodash");
 
-const tcfDeletePlayer = (
+const tcfRouteDeletePlayers = (
   // eslint-disable-line
   tcfRequest,
   tcfReponse,
@@ -13,4 +13,4 @@ const tcfDeletePlayer = (
   return tcfReponse.status(200).json(tcfPlayers);
 };
 
-module.exports = tcfDeletePlayer;
+module.exports = tcfRouteDeletePlayers;
