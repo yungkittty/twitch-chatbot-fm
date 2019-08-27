@@ -13,9 +13,8 @@
     "react-scripts": "3.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "start:development": "react-scripts start",
+    "build:production": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"

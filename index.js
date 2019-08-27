@@ -49,7 +49,7 @@ if (process.env.NODE_ENV !== "development") {
   tcfServer.use(express.static(path.join(__dirname, TCF_CLIENT_PATH)));
 
   tcfServer.get("*", (tcfRequest, tcfResponse) =>
-    tcfResponse.sendFile(path.join(__dirname + TCF_CLIENT_PATH + "/index.html"))
+    tcfResponse.sendFile(path.join(__dirname, TCF_CLIENT_PATH + "/index.html"))
   );
 }
 
@@ -60,11 +60,6 @@ const {
   TCF_CLIENT_BOT_CHANNEL
 } = require("./tcf-configs.json");
 
-const {
-  // eslint-disable-line
-  tcfCmdVote
-} = require("./packages/tcf-client-bot");
-
 const tcfClientBot = new tmi.client({
   identity: {
     username: TCF_CLIENT_BOT_USERNAME,
@@ -72,6 +67,11 @@ const tcfClientBot = new tmi.client({
   },
   channels: [TCF_CLIENT_BOT_CHANNEL]
 });
+
+const {
+  // eslint-disable-line
+  tcfCmdVote
+} = require("./packages/tcf-client-bot");
 
 tcfClientBot.on("message", (
   // eslint-disable-line

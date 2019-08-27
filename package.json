@@ -3,9 +3,9 @@
   "name": "twitch-chatbot-fm",
   "version": "1.0.0",
   "scripts": {
-    "start:development:linux": "",
-    "build:production:linux": "",
-    "build:production:windows": ""
+    "start:development": "NODE_ENV=\"development\" node index.js",
+    "build:production:linux": "bash ./scripts/build-production.sh linux",
+    "build:production:windows": "bash ./scripts/build-production.sh windows"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -14,6 +14,6 @@
     "tmi.js": "^1.4.5"
   },
   "devDependencies": {
-    "concurrently": "^4.1.2"
+    "nexe": "^3.3.2"
   }
 }
