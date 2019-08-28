@@ -56,14 +56,14 @@ if (process.env.NODE_ENV !== "development") {
 const {
   // eslint-disable-line
   TCF_CLIENT_BOT_USERNAME,
-  TCF_CLIENT_BOT_PASSWORD,
+  TCF_CLIENT_BOT_TOKEN,
   TCF_CLIENT_BOT_CHANNEL
 } = require("./tcf-configs.json");
 
 const tcfClientBot = new tmi.client({
   identity: {
     username: TCF_CLIENT_BOT_USERNAME,
-    password: TCF_CLIENT_BOT_PASSWORD
+    password: TCF_CLIENT_BOT_TOKEN
   },
   channels: [TCF_CLIENT_BOT_CHANNEL]
 });
