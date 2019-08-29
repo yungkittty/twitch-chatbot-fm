@@ -2,15 +2,15 @@
 
 ## What is it?
 
-Twitch Chatbot FM is a chatbot to allow the viewers, through command, to suggest players for the streamer team on Football Manager (FM). The streamer can then access the votes from a local website. The idea is to normalize the interactions to improve the experience of the viewers and the streamer.
+Twitch Chatbot FM is a chatbot to allow the viewers, through commands, to suggest players for the streamer team on Football Manager (FM). The streamer can then access the votes from a local website. The idea is to normalize the interactions to improve the experience of the viewers and the streamer.
 
 ## How to use it?
 
-1. Download [the latest release]().
+1. Download [the latest release](https://github.com/yungkittty/twitch-chatbot-fm/releases/tag/v0.9).
 
 2. Unrar the the latest release wherever you want.
 
-3. Edit the `tcf-configs.json` file with any editor and fill-in the following values:
+3. Edit the `tcf-configs.json` file with any editor, fill-in the following values and save it:
 
    ```json
    {
@@ -46,7 +46,8 @@ You can now now use the local website in the browser **of the device running the
 
 - http://localhost:4000
 
-![](https://user-images.githubusercontent.com/20394860/63874486-dfac6880-c9c1-11e9-8b66-3a0e981ef4b8.png)
+
+![](https://user-images.githubusercontent.com/20394860/63952520-07620600-ca80-11e9-89d2-9966bcc51784.png)
 
 ## How can I help?
 
@@ -60,7 +61,7 @@ Also, if you have development skills in:
 - Node.Js
 - JavaScript
   
-don't hesitate to open pull-requests as long as it remains relevant.
+don't hesitate to open pull-requests as long as it remains **relevant**.
 
 ## What is the license?
 
