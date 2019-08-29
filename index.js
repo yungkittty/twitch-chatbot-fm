@@ -1,5 +1,6 @@
 const _ = require("lodash");
 const express = require("express");
+const fs = require("fs");
 const path = require("path");
 const tmi = require("tmi.js");
 
@@ -44,12 +45,12 @@ tcfServer.delete(
 );
 
 if (process.env.NODE_ENV !== "development") {
-  const TCF_CLIENT_PATH = "/packages/tcf-client/build";
+  const TCF_CLIENT_PATH = path.normalize("/packages/tcf-client/build");
 
   tcfServer.use(express.static(path.join(__dirname, TCF_CLIENT_PATH)));
 
   tcfServer.get("*", (tcfRequest, tcfResponse) =>
-    tcfResponse.sendFile(path.join(__dirname, TCF_CLIENT_PATH + "/index.html"))
+    tcfResponse.sendFile(path.join(__dirname, TCF_CLIENT_PATH, "index.html"))
   );
 }
 
@@ -58,7 +59,13 @@ const {
   TCF_CLIENT_BOT_USERNAME,
   TCF_CLIENT_BOT_TOKEN,
   TCF_CLIENT_BOT_CHANNEL
-} = require("./tcf-configs.json");
+} = JSON.parse(
+  fs.readFileSync(
+    // eslint-disable-line
+    path.join(__dirname, "tcf-configs.json"),
+    { encoding: "utf-8" }
+  )
+);
 
 const tcfClientBot = new tmi.client({
   identity: {
