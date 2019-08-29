@@ -4,7 +4,7 @@ const AppAbout = () => (
   <div style={styles.aboutContainer}>
     <h4 style={styles.aboutTitle}>
       {/* eslint-disable-line */}
-      Twitch Chatbot FM Beta (0.9)
+      Twitch Chatbot FM Beta v0.9
     </h4>
     <h5 style={styles.aboutSubtitle}>
       {/* eslint-disable-line */}
