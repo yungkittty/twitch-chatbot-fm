@@ -6,7 +6,7 @@ Twitch Chatbot FM is a chatbot to allow the viewers, through commands, to sugges
 
 ## How to use it?
 
-1. Download [the latest release](https://github.com/yungkittty/twitch-chatbot-fm/releases/tag/v0.9).
+1. Download [the latest release](https://github.com/yungkittty/twitch-chatbot-fm/releases/tag/v0.9.1).
 
 2. Unrar the the latest release wherever you want.
 

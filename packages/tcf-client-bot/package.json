@@ -1,7 +1,7 @@
 {
   "author": "yungkittty",
   "name": "tcf-client-bot",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "dependencies": {
     "lodash": "^4.17.15"
   }
