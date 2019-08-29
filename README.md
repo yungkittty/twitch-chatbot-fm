@@ -10,7 +10,7 @@ Twitch Chatbot FM is a chatbot to allow the viewers, through command, to suggest
 
 2. Unrar the the latest release wherever you want.
 
-3. Edit the `tcf-configs.json` file with whatever text editor and fill-in the following values:
+3. Edit the `tcf-configs.json` file with any editor and fill-in the following values:
 
    ```json
    {
@@ -22,7 +22,7 @@ Twitch Chatbot FM is a chatbot to allow the viewers, through command, to suggest
  
    `account` refers:
    - Either to your twitch account.
-   - Either to an twitch account created for the chatbot, so it's clear from whom the message originate.
+   - Either to a twitch account created for the chatbot, so it's clear from whom the message originate.
  
    **The account username** is the account username.
  
@@ -54,13 +54,13 @@ If you have any suggestions or you have encountered any bugs, send me an email a
 
 `twitch.chatbot.fm@gmail.com`  
 
-Otherwise, if you have development skills in:
+Also, if you have development skills in:
 
 - React.Js
 - Node.Js
 - JavaScript
   
-does not hesitate to open pull-requests as long as it remains relevant.
+don't hesitate to open pull-requests as long as it remains relevant.
 
 ## What is the license?
 
