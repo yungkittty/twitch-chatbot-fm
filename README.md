@@ -46,8 +46,7 @@ You can now now use the local website in the browser **of the device running the
 
 - http://localhost:4000
 
-
-![](https://user-images.githubusercontent.com/20394860/63952520-07620600-ca80-11e9-89d2-9966bcc51784.png)
+![](https://user-images.githubusercontent.com/20394860/63954143-eb139880-ca82-11e9-8d09-941c2c18972f.png)
 
 ## How can I help?
 
